@@ -25,6 +25,10 @@ class LoadUrlComponent extends Object {
       foreach($default_options as $opt=>$value) {
           if(!isset($options[$opt])) $options[$opt] = $value;
       }
+      
+      if(strrpos($url, 'http')===false) {
+        $url = 'http://'.$url;
+      }
 
       $url_parts = parse_url($url);
       $ch = false;
